@@ -17,7 +17,7 @@ export default class App extends Component {
             .then(batmanShows => {
                 // Assignment 1
                 // In the ES6 Syntax, the line below can be written shorter by using Object Property Value Shorthand. Try it.
-                this.setState({ batmanShows: batmanShows });
+                this.setState({ batmanShows });
             });
     }
 
@@ -26,7 +26,9 @@ export default class App extends Component {
         // In React, state cannot be mutated directly by doing this.state.count++
         // Instead, we need to use a React method called setState(): https://reactjs.org/docs/react-component.html#setstate
         // Rewrite this function by using the setState() method
-        this.state.count++
+        // this.state.count++
+        this.setState({ count :  this.state.count + 1});
+
     }
 
     decrementCount = () => {
@@ -45,8 +47,7 @@ export default class App extends Component {
         // Assignment 3
         // 2 lines below can be rewritten to 1 by using Object Descructering 
         // Try and rewrite it by using the documentation (see https://developer.mozilla.org/nl/docs/Web/JavaScript/Reference/Operatoren/Destructuring_assignment)
-        const batmanShows = this.state.batmanShows;
-        const count = this.state.count;
+        const { batmanShows, count  } = this.state
 
         // Question 1
         // Why do we need to filter the array we receive from the API?
